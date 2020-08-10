@@ -1,0 +1,44 @@
+<div class="container text-center">
+  <h1 class="m-5 text-light">Angular Stopwatch</h1>
+    <div class="row m-0">
+      <div class="col-lg-12 m-0 text-light">
+        <h1 class="d-inline text-success" *ngIf="this.time.getHours() < 10">0</h1>
+        <h1 class="d-inline text-success">{{time.getHours()}}</h1>
+        <h1 class="d-inline mx-2">:</h1>
+        <h1 class="d-inline text-warning" *ngIf="this.time.getMinutes() < 10">0</h1>
+        <h1 class="d-inline text-warning">{{time.getMinutes()}}</h1>
+        <h1 class="d-inline mx-2">:</h1>
+        <h1 class="d-inline text-danger" *ngIf="this.time.getSeconds() < 10">0</h1>
+        <h1 class="d-inline text-danger">{{time.getSeconds()}}</h1>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-success m-5" (click)="startStop()">Start/Stop</button>
+        <button class="btn btn-warning m-5 text-light" (dblclick)="wait()" (click)="showAlert()">Wait</button>
+        <span class="text-danger small" *ngIf="alert">Double Click to Wait!</span>
+        <button class="btn btn-danger m-5" (click)="reset()">Reset</button>
+      </div>
+    </div>
+      <h3 class="text-warning" style="cursor: pointer" (click)="showGuide = !showGuide">How to Use?</h3>
+      <div class="col" *ngIf="showGuide">
+        <ul class="list-unstyled mt-5">
+          <li class="mt-3 text-success">
+            To launch the stopwatch tap
+            <button class="btn btn-success ml-2" disabled>Start/Stop</button>
+          </li>
+          <li class="mt-3 text-success">
+            To stop timer and clear it press
+            <button class="btn btn-success ml-2 text-light" disabled>Stop</button>
+          </li>
+          <li class="mt-3 text-warning">
+            To freeze timer DOUBLE click on
+            <button class="btn btn-warning ml-2 text-light" disabled>Wait</button>
+          </li>
+          <li class="mt-3 text-danger">
+            To restart the stopwatch push
+            <button class="btn btn-danger ml-2 text-light" disabled>Reset</button>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
